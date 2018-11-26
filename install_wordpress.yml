@@ -1,0 +1,28 @@
+---
+- hosts: wordpress_nodes
+  become: yes
+  vars:
+    database_name: "SuperBlogXD"
+    wp_install_directory: /var/www/wordpress
+    telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
+    metrics_strorages_ip: 172.31.16.135
+    db_ip: 172.31.18.70
+  tasks:
+    - include_tasks: tasks/os_dependencies.yml
+    - include_tasks: tasks/manage-httpd.yml
+    - include_tasks: tasks/manage-wp-install.yml
+    - include_tasks: tasks/manage-telegraf.yml
+
+- hosts: db_nodes
+  become: yes
+  vars:
+    database_name: "SuperBlogXD"
+  tasks:
+    - include_tasks: tasks/manage-db.yml
+- hosts: stats_nodes
+  become: yes
+  vars:
+    influxdb_url: https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm
+    grafana_url: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.3.4-1.x86_64.rpm
+  tasks:
+    - include_tasks: tasks/stats.yml
