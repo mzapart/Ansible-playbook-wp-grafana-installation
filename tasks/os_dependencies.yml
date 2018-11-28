@@ -1,23 +1,15 @@
 ---
-- name: "Install php dependencies"
-  yum:
-    name: "{{packages}}"
-    state: latest
-  vars:
-    packages:
-      - php
-      - php-mysql
+     - name: "install the latest version of Apache srv"
+       yum:
+         name: httpd
+         state: latest
+       become: yes
+     - name: "PHP"
+       yum:
+         name: "{{packages}}"
+         state: latest
+       vars:
+         packages:
+            - php
+             
 
-- name: "Install apache server"
-  yum:
-    name: httpd
-    state: latest
-
-- name: "Install mysql server"
-  yum:
-    name: "{{ packages }}"
-    state: latest
-  vars:
-    packages:
-      - mariadb
-      - mariadb-server
