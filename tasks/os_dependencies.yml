@@ -11,5 +11,7 @@
        vars:
          packages:
             - php
+            - MySQL-python
+            - php-mysql
              
 

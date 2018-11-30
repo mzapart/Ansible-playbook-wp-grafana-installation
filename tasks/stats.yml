@@ -10,7 +10,13 @@
     yum:
       name: "{{ grafana_url }}"
       state: present
+  - name: edit grafana.ini
+    lineinfile:
+      path: /etc/grafana/grafana.ini
+      regexp: ';http_port = 3000'
+      line: 'http_port = 8080 '
   - name: making sure that telegraf is working
     service:
       name: grafana-server
       state: restarted 
+    
