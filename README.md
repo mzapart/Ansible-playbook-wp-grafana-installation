@@ -11,5 +11,5 @@ w pliku hosts.ini odpowiednio podać ich adresy publiczne
 Następnie w pliku install_env podmieniamy niżej wymienione zmienne wg wzoru
 metrics_strorages_ip:<<prywatne ip serwera pierwszego>>
 db_ip: <<prywatne ip serwera drugiego>>
-apache_ip:<<prywatne ip serwera pierwszego??????>>
-grafana_ip:<<publiczne ip serwera trzeciego>>
+apache_ip:<<publiczne ip serwera pierwszego
+

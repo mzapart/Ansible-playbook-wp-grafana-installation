@@ -33,6 +33,5 @@
   vars:
     influxdb_url: https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm
     grafana_url: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.3.4-1.x86_64.rpm
-    grafana_ip: 3.121.227.237
   tasks:
     - include_tasks: tasks/stats.yml
