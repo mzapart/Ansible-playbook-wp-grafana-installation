@@ -10,6 +10,10 @@
     yum:
       name: "{{ grafana_url }}"
       state: present
+  - name: "put grafana config"
+    copy:
+      src: templates/grafana.ini
+      dest: "/etc/grafana/grafana.ini"    
   - name: making sure that telegraf is working
     service:
       name: grafana-server

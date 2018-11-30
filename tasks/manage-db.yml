@@ -1,24 +1,34 @@
 ---
-- name: "Install mysql server"
-  yum:
-    name: "{{ packages }}"
-    state: latest
-  vars:
-    packages:
-      - mariadb
-      - mariadb-server
-- yum:
-    name: MySQL-python
-    state: present
-- service:
-    name: mariadb
-    state: restarted
-- mysql_db:
-    name: "{{database_name}}"
-    state: present
-- mysql_user:
-    name: bob
-    password: 12345
-    priv: '*.*:ALL'
-    state: present
-    host: '%'
+     - name: "install marysiaDb"
+       yum:
+         name: "{{packages}}"
+         state: present
+       vars:
+         packages:
+            - mariadb
+            - mariadb-server
+     - name: "PHP-mysql"
+       yum:
+         name: "{{packages}}"
+         state: latest
+       vars:
+         packages:
+            - php-mysql
+            - MySQL-python
+     - name: "start mariadb"
+       service: 
+         name: mariadb
+         state: started 
+     - name: "create new db"
+       mysql_db:
+           name: "{{db_name}}"
+           state: present
+     - name: "create db user"
+       mysql_user:
+           name: "{{db_user}}"
+           password: "{{db_pwd}}"
+           priv: '*.*:ALL'
+           state: present
+           host: '%'
+
+

@@ -1,28 +1,36 @@
 ---
-- hosts: wordpress_nodes
+- hosts: web_nodes
   become: yes
   vars:
-    database_name: "SuperBlogXD"
     wp_install_directory: /var/www/wordpress
+    db_name: hello_db
+    db_user: "user_{{db_name}}"
+    db_pwd: "1234"
     telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
-    metrics_strorages_ip: 172.31.16.135
-    db_ip: 172.31.18.70
+    metrics_strorages_ip: 35.156.248.110
+    db_ip: 172.31.22.102
+    apache_ip: 35.156.248.110
   tasks:
     - include_tasks: tasks/os_dependencies.yml
-    - include_tasks: tasks/manage-httpd.yml
-    - include_tasks: tasks/manage-wp-install.yml
-    - include_tasks: tasks/manage-telegraf.yml
-
+    - include_tasks: tasks/wp-install.yml
+    - include_tasks: tasks/manage-telegraf.yml 
 - hosts: db_nodes
   become: yes
   vars:
-    database_name: "SuperBlogXD"
+    db_name: hello_db
+    db_user: "user_{{db_name}}"
+    db_pwd: "1234"
+    metrics_strorages_ip: 35.156.248.110
+    db_ip: 172.31.17.131
+    telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
   tasks:
     - include_tasks: tasks/manage-db.yml
+    - include_tasks: tasks/manage-telegraf_db.yml 
 - hosts: stats_nodes
   become: yes
   vars:
     influxdb_url: https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm
     grafana_url: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.3.4-1.x86_64.rpm
+    grafana_ip: 18.185.4.172
   tasks:
     - include_tasks: tasks/stats.yml

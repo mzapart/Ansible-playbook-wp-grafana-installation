@@ -1,9 +1,10 @@
 <?php
-define('DB_NAME', '{{database_name}}');
 
-define('DB_USER', 'bob');
+define('DB_NAME', '{{db_name}}');
 
-define('DB_PASSWORD', '12345');
+define('DB_USER', '{{db_user}}');
+
+define('DB_PASSWORD', '{{db_pwd}}');
 
 define('DB_HOST', '{{db_ip}}');
 
@@ -11,18 +12,26 @@ define('DB_CHARSET', 'utf8mb4');
 
 define('DB_COLLATE', '');
 
-define('AUTH_KEY',         "{{ '.M7OHL|L xcN;47AHZ1IKkovhh8}%0YOW^Z8uj%-3^6`iM_9G2Way;)W^U_~e%.~' }}");
-define('SECURE_AUTH_KEY',  "{{ ';]9:0vCjcf0tBs{W&<@5|KlmJ`_604{eGnq~iC3rC<whR[eHp(Xub)%9l{[R;nkX' }}");
-define('LOGGED_IN_KEY',    "{{ 'KWp|AR<Z;~,Dr,uaE=U[F.yP^dB:;9yZv5O:ULs]IXj?! ^zo(Rwu#V 9: 0}3~a' }}");
-define('NONCE_KEY',        "{{ '1/JwQ%2n=e;FZ.#_Nj|tr3^}{p$QW:fc,qMn>laH`}_PGZ_>j>GF6T?#hO[qX8md' }}");
-define('AUTH_SALT',        "{{ '~O-J9KApZIsoBA#J hg4E]/6PCD|<fM}2&pS@*$M<^#Gc5@J.~=mAJk(_v6 [o]B' }}");
-define('SECURE_AUTH_SALT', "{{ 'P_lOzS(2^U_HZfvRo`P{B |-uFzW-+lJSB^N r#aIA9~UgHl;mqg.mp~3Lba7HwQ' }}");
-define('LOGGED_IN_SALT',   "{{ '0=h%Me[P YhI-AGlXo%U[[eQLx8DoRXzqxh_*m.$n`&FJ{uSfUXWM 7<QcFHbF]!' }}");
-define('NONCE_SALT',       "{{ '5RsGMZGn*EOMRU)Xj8V(n`@ >w)$kj=KSa-hs0}C)fb@P*SqZk)LBt8e6vxahCw%' }}");
+
+
+define('AUTH_KEY',         'TC3B<G mmQZR(O5*gK!>&G/S&aV#]x!_m)a%rSS)?j4Mkx9~yG9j; &+<~Vszm$D');
+define('SECURE_AUTH_KEY',  '2ik.u,|aVZk}p0 d@G=@PnK.C8XGu~Tiy.[v:-e0TZWfcmV1_WyE;WxsJL:gSomo');
+define('LOGGED_IN_KEY',    'VvYq:|e46-O5@}GwdV!Jo>J<AjvPP)*P%M==2Kjh92nc=Gq7}mav4O{f|0#q,Hjw');
+define('NONCE_KEY',        '2b|5XTCP<uuOL4*V%VWM<9jG9^q:5{1[n41o]L7/E3*&G| k:-6C>o_ e)kTx,pB');
+define('AUTH_SALT',        'K6h)CT(2Qo#v?%}^y,an!n.v_((3qPn/g)@TbA}I1G44E|!W2e5P-Q(1*HVg#KJ7');
+define('SECURE_AUTH_SALT', '{jIkNdw:&fLc:G#uV9|9W|pz0G;Zv;JXCpvZQz%y%@s-]PJli7BG,.:1l<vb&v`b');
+define('LOGGED_IN_SALT',   'IG3/=M FTTMclsD6yN+>x)QW7x0dGgH1t]vG%=EPm09W3NB-gQ7X3wD$F[jNF#HT');
+define('NONCE_SALT',       'U5T%M.I-!wfZ|=YLiJoq>JffTy-^om8tPu&!$M</z8[tB]%@zqK7~XjpYg++6;]*');
+
 
 $table_prefix  = 'wp_';
 
+
 define('WP_DEBUG', false);
+
+
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
+
+
 require_once(ABSPATH . 'wp-settings.php');
