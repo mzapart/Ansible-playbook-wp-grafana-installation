@@ -11,7 +11,11 @@
        vars:
          packages:
             - php
+<<<<<<< HEAD
             - MySQL-python
             - php-mysql
              
+=======
+            - php-mysql
+>>>>>>> refs/remotes/origin/master
 

@@ -7,9 +7,15 @@
     db_user: "user_{{db_name}}"
     db_pwd: "1234"
     telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
+<<<<<<< HEAD
     metrics_strorages_ip: 172.31.25.95
     db_ip: 35.158.95.114
     apache_ip: 172.31.25.140
+=======
+    metrics_strorages_ip: 35.156.248.110
+    db_ip: 172.31.22.102
+    apache_ip: 35.156.248.110
+>>>>>>> refs/remotes/origin/master
   tasks:
     - include_tasks: tasks/os_dependencies.yml
     - include_tasks: tasks/wp-install.yml
@@ -21,8 +27,13 @@
     db_name: hello_db
     db_user: "user_{{db_name}}"
     db_pwd: "1234"
+<<<<<<< HEAD
     metrics_strorages_ip: 172.31.25.95
     db_ip: 35.158.95.114
+=======
+    metrics_strorages_ip: 35.156.248.110
+    db_ip: 172.31.17.131
+>>>>>>> refs/remotes/origin/master
     telegraf_url: https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm
   tasks:
     - include_tasks: tasks/manage-db.yml
@@ -33,6 +44,10 @@
   vars:
     influxdb_url: https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm
     grafana_url: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-5.3.4-1.x86_64.rpm
+<<<<<<< HEAD
     grafana_ip: 
+=======
+    grafana_ip: 18.185.4.172
+>>>>>>> refs/remotes/origin/master
   tasks:
     - include_tasks: tasks/stats.yml
