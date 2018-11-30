@@ -11,5 +11,5 @@
        vars:
          packages:
             - php
-             
+            - php-mysql
 
